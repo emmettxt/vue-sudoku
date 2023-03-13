@@ -1,18 +1,12 @@
 <script setup lang="ts">
-import { store, type PossibleCellValues } from '../store'
+import { store, type PossibleCellValues } from '../../stores/store'
 import { computed } from 'vue'
-const props = defineProps<{
-  value: PossibleCellValues | null
-  bordered?: boolean
-  pencil?: boolean
-}>()
+const props = defineProps<{ value: PossibleCellValues; bordered: boolean }>()
 
 const className = computed(() => {
   let className = 'circle'
   if (props.bordered) className += ' circle-bordered'
   if (props.value === store.SelectedValue) className += ' circle-highlighted'
-  if (props.pencil) className += ' circle-pencil'
-  if (props.value) className += ' circle-valued'
   return className
 })
 </script>
@@ -26,10 +20,10 @@ const className = computed(() => {
 <style scoped>
 .circle {
   border-radius: 50%;
-  max-width: 55%;
-  max-height: 55%;
-
+  width: 50%;
   aspect-ratio: 1;
+  max-width: 100%;
+  color: var(--vt-c-white-mute);
   text-align: center;
   margin-inline: auto;
   display: flex;
@@ -37,20 +31,16 @@ const className = computed(() => {
   align-items: center;
 }
 .circle-bordered {
-  border: 2px solid var(--primary-text);
-}
-.circle {
-  color: var(--primary-text);
+  border: 2px solid var(--vt-c-white-mute);
 }
 
 .circle-highlighted,
-.circle-valued:hover {
-  background-color: var(--secondary-bg);
-  color: var(--secondary-text);
+.circle:hover {
+  background-color: var(--vt-c-white-mute);
+  color: var(--vt-c-black-soft);
 }
-
-.circle-pencil,
-.circle.circle-pencil:hover {
-  color: var(--accent-text);
+.numberSelector button {
+  aspect-ratio: 1;
+  align-items: center;
 }
 </style>

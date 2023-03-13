@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { store } from '../store'
+import { store } from '../../stores/store'
+import PencilSVG from '@/assets/PencilSVG.vue'
 </script>
 
 <template>
@@ -7,7 +8,8 @@ import { store } from '../store'
     :class="store.isPencilMode ? 'btn btn-selected' : 'btn'"
     @click="store.toggleIsPencileMode()"
   >
-    PENCIL
+    <PencilSVG />
+    <!-- PENCIL -->
   </button>
 </template>
 
@@ -18,6 +20,8 @@ import { store } from '../store'
   padding: 0.2rem;
   transition: transform 100ms ease-in-out;
   color: var(--primary-text);
+  width: 11.1%;
+  aspect-ratio: 1;
 }
 .btn:hover {
   transform: scale(0.9);

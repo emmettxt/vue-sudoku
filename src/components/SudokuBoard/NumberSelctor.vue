@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PossibleCellValuesArray, store, type PossibleCellValues } from '../store'
+import { PossibleCellValuesArray, store, type PossibleCellValues } from '../../stores/store'
 import NumberWraper from './NumberWraper.vue'
 
 const onClick = (n: PossibleCellValues) => {

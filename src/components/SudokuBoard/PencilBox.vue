@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PossibleCoOrd, store, type PossibleColumn, type PossibleRow } from '../store'
+import { PossibleCoOrd, store, type PossibleColumn, type PossibleRow } from '../../stores/store'
 import { computed } from 'vue'
 import NumberWraper from './NumberWraper.vue'
 const props = defineProps<{
@@ -29,6 +29,6 @@ const getDisplayValue = (n: PossibleRow) => {
     repeat(3, 1fr);
   font-size: 0.6em;
   z-index: -1;
-  /* color: var(--accent-text); */
+  color: var(--accent-text);
 }
 </style>

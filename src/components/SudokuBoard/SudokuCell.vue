@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { store, type PossibleColumn, type PossibleRow } from '@/store'
+import { store, type PossibleColumn, type PossibleRow } from '@/stores/store'
 import { computed } from 'vue'
 import NumberWraper from './NumberWraper.vue'
 import PencilBox from './PencilBox.vue'
@@ -45,5 +45,6 @@ const onClick = () => {
   text-align: center;
   border: 1px dotted var(--accent-text);
   position: relative;
+  z-index: 0;
 }
 </style>

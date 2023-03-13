@@ -1,0 +1,44 @@
+.theme-white {
+  --primary-bg: #ffffff;
+  --primary-text: #000000;
+  --accent-text: #737373;
+
+  --secondary-text: var(--primary-bg);
+  --secondary-bg: var(--primary-text);
+}
+
+.theme-black {
+  --primary-bg: #000000;
+  --primary-text: #ffffff;
+  --accent-text: #737373;
+
+  --secondary-text: var(--primary-bg);
+  --secondary-bg: var(--primary-text);
+}
+
+.theme-licorice {
+  --primary-bg: #1c0221;
+  --primary-text: #c4d6b0;
+  --accent-text: #447604;
+
+  --secondary-text: var(--primary-bg);
+  --secondary-bg: var(--primary-text);
+}
+
+.theme-claret {
+  --primary-bg: #8b1e3f;
+  --primary-text: #8acdea;
+  --accent-text: #f0c987;
+
+  --secondary-text: var(--primary-bg);
+  --secondary-bg: var(--primary-text);
+}
+
+.theme-sky-blue {
+  --primary-bg: #8acdea;
+  --primary-text: #8b1e3f;
+  --accent-text: #e4572e;
+
+  --secondary-text: var(--primary-bg);
+  --secondary-bg: var(--primary-text);
+}

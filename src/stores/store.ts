@@ -1,5 +1,5 @@
 import { reactive } from 'vue'
-import { getBoard } from './Services/sudokuService'
+import { getBoard } from '../Services/sudokuService'
 
 export interface cell {
   isStatic: boolean

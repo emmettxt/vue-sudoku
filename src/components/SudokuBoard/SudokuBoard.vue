@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import SudokuCell from './SudokuCell.vue'
 import { onBeforeMount } from 'vue'
-import { store, type PossibleColumn, type PossibleRow } from '@/store'
+import { store, type PossibleColumn, type PossibleRow } from '@/stores/store'
 import NumberSelctor from './NumberSelctor.vue'
 import TogglePencilModeButton from './TogglePencilModeButton.vue'
 
