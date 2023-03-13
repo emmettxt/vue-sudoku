@@ -39,6 +39,9 @@ const className = computed(() => {
 .circle-bordered {
   border: 2px solid var(--primary-text);
 }
+.circle {
+  color: var(--primary-text);
+}
 
 .circle-highlighted,
 .circle-valued:hover {

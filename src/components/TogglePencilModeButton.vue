@@ -17,6 +17,7 @@ import { store } from '../store'
   border-radius: 0.2rem;
   padding: 0.2rem;
   transition: transform 100ms ease-in-out;
+  color: var(--primary-text);
 }
 .btn:hover {
   transform: scale(0.9);

@@ -27,7 +27,7 @@ const getDisplayValue = (n: PossibleRow) => {
   grid:
     repeat(3, 1fr) /
     repeat(3, 1fr);
-  font-size: 0.5em;
+  font-size: 0.6em;
   z-index: -1;
   /* color: var(--accent-text); */
 }
