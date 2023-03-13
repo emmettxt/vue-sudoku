@@ -11,11 +11,6 @@ const value = computed(() => {
   else return null
 })
 const pencilClick = () => {
-  console.log('pencil click', {
-    SelectedValue: store.SelectedValue,
-    ...props,
-    pencilBoard: store.pencilBoard
-  })
   if (store.SelectedValue) {
     store.togglePencilBoardCellValue(props.row, props.column, store.SelectedValue)
   }
