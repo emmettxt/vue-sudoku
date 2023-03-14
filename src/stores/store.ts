@@ -25,11 +25,20 @@ export const store = reactive({
   },
   setWon(won: boolean) {
     this.won = won
-    if (won) console.log('YOU WON!')
   },
   boardHistoy: [] as { board: cell[][]; pencilBoard: boolean[][][] }[],
   updateHistory() {
-    this.boardHistoy.push({ pencilBoard: this.pencilBoard, board: this.board })
+    this.boardHistoy.push({
+      pencilBoard: JSON.parse(JSON.stringify(this.pencilBoard)),
+      board: JSON.parse(JSON.stringify(this.board))
+    })
+  },
+  undo() {
+    const lastState = this.boardHistoy.pop()
+    if (lastState) {
+      this.board = lastState.board
+      this.pencilBoard = lastState.pencilBoard
+    }
   },
   board: blankBoard,
   setValue(row: PossibleRow, column: PossibleColumn, value: PossibleCellValues) {
@@ -83,8 +92,8 @@ export const store = reactive({
         this.setInitialValue(row, column, value)
         this.boardId = id
         this.setWon(false)
-        this.updateHistory()
       }
+      this.boardHistoy = []
     })
   }
 })

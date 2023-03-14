@@ -12,16 +12,17 @@ const value = computed(() => {
 })
 const pencilClick = () => {
   if (store.SelectedValue) {
+    store.updateHistory()
     store.togglePencilBoardCellValue(props.row, props.column, store.SelectedValue)
   }
 }
 const onClick = () => {
-  if (store.isPencilMode) return pencilClick()
-  if (store.SelectedValue && !isStatic.value) {
+  if (store.isPencilMode) pencilClick()
+  else if (store.SelectedValue && !isStatic.value) {
     const newValue = store.SelectedValue === value.value ? 0 : store.SelectedValue
-    return store.setValue(props.row, props.column, newValue)
-  }
-  if (value.value) {
+    store.updateHistory()
+    store.setValue(props.row, props.column, newValue)
+  } else if (value.value) {
     const newSelectedValue = store.SelectedValue == value.value ? 0 : value.value
     store.setSelectedValue(newSelectedValue)
   }

@@ -5,6 +5,7 @@ import { store, type PossibleColumn, type PossibleRow } from '@/stores/store'
 import NumberSelctor from './NumberSelctor.vue'
 import TogglePencilModeButton from './TogglePencilModeButton.vue'
 import NewGameButton from '../NewGameButton.vue'
+import UndoButton from '../UndoButton.vue'
 
 const calculateRow = (blockNumber: number, cellNumber: number): PossibleRow =>
   (Math.ceil(cellNumber / 3) + 3 * Math.floor((blockNumber - 1) / 3)) as PossibleRow
@@ -31,6 +32,7 @@ onBeforeMount(() => store.LoadNewBoard())
     <div class="game-buttons">
       <TogglePencilModeButton />
       <NewGameButton :has-warning="true" />
+      <UndoButton />
     </div>
   </div>
 </template>
