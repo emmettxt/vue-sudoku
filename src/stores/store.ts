@@ -1,5 +1,5 @@
 import { reactive } from 'vue'
-import { getBoard } from '../Services/sudokuService'
+import { getBoard, checkSolution } from '../Services/sudokuService'
 
 export interface cell {
   isStatic: boolean
@@ -25,6 +25,7 @@ export const store = reactive({
   },
   setWon(won: boolean) {
     this.won = won
+    if (won) console.log('YOU WON!')
   },
   boardHistoy: [] as { board: cell[][]; pencilBoard: boolean[][][] }[],
   updateHistory() {
@@ -35,6 +36,7 @@ export const store = reactive({
     const cell = this.board[row - 1][column - 1]
     this.board[row - 1].splice(column - 1, 1, { ...cell, value })
     clearCellsRowAndColumnOfPencilValue(row, column)
+    checkIsWon()
   },
   setIsStatic(row: PossibleRow, column: PossibleColumn, isStatic: boolean) {
     const cell = this.board[row - 1][column - 1]
@@ -71,20 +73,47 @@ export const store = reactive({
   getPencilCell(row: PossibleRow, column: PossibleColumn) {
     return this.pencilBoard[row - 1][column - 1]
   },
+  boardId: undefined as number | undefined,
   LoadNewBoard() {
-    getBoard().then(({ board }) => {
+    getBoard().then(({ board, id }) => {
       for (let i = 1; i <= 81; i++) {
         const value = Number(board[i - 1]) as PossibleCellValues
         const row = Math.ceil(i / 9) as PossibleRow
         const column = (i - (row - 1) * 9) as PossibleColumn
         this.setInitialValue(row, column, value)
-
+        this.boardId = id
         this.setWon(false)
         this.updateHistory()
       }
     })
   }
 })
+
+const checkIsWon = () => {
+  if (!checkBoardIsFull()) return
+  if (store.boardId) {
+    checkSolution(store.boardId, getBoardAsString()).then((isWon) => store.setWon(isWon))
+  }
+}
+
+const getBoardAsString = () => {
+  let str = ''
+  for (const row of store.board) {
+    for (const cell of row) {
+      str += cell.value
+    }
+  }
+  return str
+}
+
+const checkBoardIsFull = () => {
+  for (const row of store.board) {
+    for (const cell of row) {
+      if (!cell.value) return false
+    }
+  }
+  return true
+}
 
 const clearRowofPencilValue = (row: PossibleRow, value: PossibleColumn) => {
   for (const column of PossibleCoOrd) {

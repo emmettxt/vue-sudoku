@@ -2,6 +2,7 @@
 import SudokuBoardVue from './components/SudokuBoard/SudokuBoard.vue'
 import ThemeSelector from './components/ThemeSelector.vue/ThemeSelector.vue'
 import ThemeWrapper from './components/ThemeSelector.vue/ThemeWrapper.vue'
+import WonModal from './components/WonModal.vue'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import ThemeWrapper from './components/ThemeSelector.vue/ThemeWrapper.vue'
         <ThemeSelector />
         <SudokuBoardVue />
       </div>
+      <WonModal />
     </main>
   </ThemeWrapper>
 </template>

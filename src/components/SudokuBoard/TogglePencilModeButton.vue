@@ -15,7 +15,7 @@ import PencilSVG from '@/assets/PencilSVG.vue'
 
 <style scoped>
 .btn {
-  border: 1px solid var(--primary-text);
+  border: 2px solid var(--primary-text);
   border-radius: 0.2rem;
   padding: 0.2rem;
   transition: transform 100ms ease-in-out;

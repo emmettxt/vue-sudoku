@@ -24,6 +24,7 @@ export const getBoard = () => {
 export const checkSolution = (id: number, potentialSolution: string) => {
   const item = data[id]
   const isSolution = item.solution === potentialSolution
+  console.log('checkSolution:', { soltuion: item.solution, potentialSolution, isSolution })
   return new Promise<boolean>((resolve) => {
     resolve(isSolution)
   })
