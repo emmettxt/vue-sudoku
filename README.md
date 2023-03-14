@@ -32,3 +32,8 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Data
+
+The data for the sudoku boards is a subset of 10,000 boards from [9 Million Sudoku Puzzles and Solutions](https://www.kaggle.com/datasets/rohanrao/sudoku)
+The boards are stored in db.json and the service ./src/services/sudokuServcice.ts mocks an api serving the boards, and checking solutions.
