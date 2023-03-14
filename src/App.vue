@@ -20,13 +20,16 @@ import WonModal from './components/WonModal.vue'
 <style scoped>
 .container {
   margin-inline: auto;
-  padding-top: 100px;
   max-width: 600px;
   min-width: 336px;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 main {
-  min-height: 100vh;
   color: var(--primary-text);
   background: var(--primary-bg);
   line-height: 1.6;
@@ -36,6 +39,5 @@ main {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: auto;
 }
 </style>

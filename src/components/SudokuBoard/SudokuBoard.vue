@@ -38,9 +38,6 @@ onBeforeMount(() => store.LoadNewBoard())
 </template>
 
 <style scoped>
-.game {
-  max-height: 100vh;
-}
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
