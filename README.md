@@ -2,6 +2,10 @@
 
 vue-suduko is a static sudoku site. It was built for the purpose of learning vue.
 
+## Deploymnet
+
+This site has been deployed to github pages and can be viewed here (https://emmettxt.github.io/vue-sudoku/)
+
 ## Dependencies
 
 This project was built with minimal dependencies.
